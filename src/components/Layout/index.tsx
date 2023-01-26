@@ -3,7 +3,7 @@ import Flexbox from '../Flexbox';
 import ThemeSwitcher from '../ThemeSwitcher';
 import { ILayout } from './interfaces/layout';
 
-import { Container } from './styles';
+import { Container, PageTitle } from './styles';
 
 const Layout: React.FC<ILayout> = ({
   toggleTheme
@@ -13,6 +13,7 @@ const Layout: React.FC<ILayout> = ({
       <Flexbox width='100%' height='4rem' justify='flex-end' align='center' >
         <ThemeSwitcher switchTheme={toggleTheme}/>
       </Flexbox>
+      <PageTitle>Lista de Tarefas</PageTitle>
     </Container>
   );
 }

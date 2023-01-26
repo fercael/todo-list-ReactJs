@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout theme={theme.name} toggleTheme={toggleTheme}/>
+      <Layout toggleTheme={toggleTheme}/>
       <GlobalStyles/>
     </ThemeProvider>
   )

@@ -10,3 +10,11 @@ export const Container = styled.main`
     width: 375px;
   }
 `;
+
+export const PageTitle = styled.h1`
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(${props => props.theme.colors.title});
+`;
