@@ -1,5 +1,6 @@
 import React from 'react';
 import Flexbox from '../Flexbox';
+import TaskList from '../TaskList';
 import ThemeSwitcher from '../ThemeSwitcher';
 import { ILayout } from './interfaces/layout';
 
@@ -14,6 +15,7 @@ const Layout: React.FC<ILayout> = ({
         <ThemeSwitcher switchTheme={toggleTheme}/>
       </Flexbox>
       <PageTitle>Lista de Tarefas</PageTitle>
+      <TaskList/>
     </Container>
   );
 }
