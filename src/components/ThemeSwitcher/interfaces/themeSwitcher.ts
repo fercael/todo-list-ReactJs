@@ -1,3 +1,3 @@
 export interface IThemeSwitcher {
-  switchTheme?: () => void
+  switchTheme: () => void
 }

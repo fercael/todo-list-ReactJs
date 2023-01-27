@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
-import Layout from "./components/Layout"
+import TodoList from "./components/TodoList"
 import GlobalStyles from "./styles/globalStyles"
 import * as themes from "./styles/themes"
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout toggleTheme={toggleTheme}/>
+      <TodoList themeSwitcher={toggleTheme}/>
       <GlobalStyles/>
     </ThemeProvider>
   )
