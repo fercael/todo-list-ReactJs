@@ -5,7 +5,7 @@ import ThemeSwitcher from '../ThemeSwitcher';
 import { ITask } from './interfaces/task';
 import { ITodoListProps } from './interfaces/todoList';
 
-import { addNewTask } from './functions/addNewTask';
+import { generateTask } from './functions/generateTask';
 
 
 import { AddTask, CheckTask, CompletedTasks, Container, Input, Label, RemoveTask, Task, Title, UncompletedTasks } from './styles';
@@ -15,20 +15,21 @@ const TodoList: React.FC<ITodoListProps> = ({
   themeSwitcher
 }) => {
   const [ taskList, setTaskList ] = useState<ITask[]>([])
-  const [ newTask , setNewTask ] = useState('')
-  let updatedTaskList: {id: number, text: string, status: boolean }[] = []
+  const [ inputValue , setInputValue ] = useState('')
+  const [ newTask, setNewTask ] = useState({})
+  
 
 useEffect(()=>{
-  setTaskList(updatedTaskList)
-}, [])
+  setTaskList([...taskList, newTask])
+}, [newTask])
 
   return (
     <Container>
       <ThemeSwitcher switchTheme={themeSwitcher}/>
       <Title>{title}</Title>
       <Flexbox>
-        <Input placeholder='Digite uma tarefa...' value={newTask} onChange={e => setNewTask(e.target.value)}/>
-        <AddTask onClick={() => addNewTask(updatedTaskList, 1, newTask, false)} />
+        <Input placeholder='Digite uma tarefa...' value={inputValue} onChange={e => setInputValue(e.target.value)}/>
+        <AddTask onClick={() => setNewTask(generateTask(taskList, inputValue))} />
       </Flexbox>
       <UncompletedTasks>
       {
