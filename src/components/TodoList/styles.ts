@@ -3,7 +3,21 @@ import styled from 'styled-components';
 import * as icons from '../../assets/images';
 
 export const Container = styled.main`
-  
+  width: 1216px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+
+  @media( max-width: 1216px) {
+    width: 768px;
+  }
+  @media( max-width: 768px) {
+    width: 375px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -15,6 +29,8 @@ export const Title = styled.h1`
 `;
 
 export const Input = styled.input`
+  width: 100%;
+  max-width: 1008px;
   height: 2rem;
   padding: 0px 1rem;
   
@@ -59,9 +75,6 @@ export const RemoveTask = styled.button`
   :hover {
     cursor: pointer;
   }
-  ::after {
-    content: url(${props => props.theme.name == 'light'? icons.trashLight : icons.trashDark});
-  }
 `;
 
 export const CheckTask = styled.input`
@@ -75,8 +88,9 @@ export const CheckTask = styled.input`
 export const Task = styled.li`
   height: 4rem;
   padding-right: 1rem;
-  
+ 
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap:1rem;
   
@@ -99,6 +113,10 @@ export const Label = styled.span`
 `;
 
 export const UncompletedTasks = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   > li {
     border: 2px solid var(${props => props.theme.colors.primary});
     background: var(${props => props.theme.colors.primary});
@@ -107,10 +125,19 @@ export const UncompletedTasks = styled.ul`
       border-right: 2px solid var(${props => props.theme.colors.background});
       color: var(${props => props.theme.colors.background});
     }
+    > div > button {
+      ::after {
+        content: url(${props => props.theme.name == 'light'? icons.trashDark : icons.trashLight});
+      }
+    }
   }
 `;
 
 export const CompletedTasks = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   > li {
     border: 2px solid var(${props => props.theme.colors.subtitle});
     background: var(${props => props.theme.colors.background});
@@ -118,6 +145,11 @@ export const CompletedTasks = styled.ul`
     > span {
       border-right: 2px solid var(${props => props.theme.colors.subtitle});
       color: var(${props => props.theme.colors.subtitle});
+    }
+    > div > button {
+      ::after {
+        content: url(${props => props.theme.name == 'light'? icons.trashDark : icons.trashLight});
+      }
     }
   }
 `;

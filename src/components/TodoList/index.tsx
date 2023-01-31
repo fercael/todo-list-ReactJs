@@ -31,7 +31,7 @@ useEffect(()=>{
     <Container>
       <ThemeSwitcher switchTheme={themeSwitcher}/>
       <Title>{title}</Title>
-      <Flexbox>
+      <Flexbox width='100%' justify='center'>
         <Input placeholder='Digite uma tarefa...' value={inputValue} onChange={e => setInputValue(e.target.value)}/>
         <AddTask onClick={() => setNewTask(generateTask(taskList, inputValue))} />
       </Flexbox>

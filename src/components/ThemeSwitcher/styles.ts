@@ -7,6 +7,10 @@ export const Wrapper = styled.button`
   background: transparent;
   border: transparent;
 
+  margin: 0.5rem;
+
+  align-self: flex-end;
+
   display: flex;
   justify-content: center;
   align-items: center;
