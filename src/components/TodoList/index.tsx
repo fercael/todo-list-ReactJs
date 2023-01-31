@@ -44,7 +44,7 @@ useEffect(()=>{
                 <Label>{item.id}</Label> 
                   {item.text}
                 <Flexbox width='4rem' height='100%' justify='space-between' align='center'>
-                  <CheckTask type='checkbox' />
+                  <CheckTask value={item.id} type='checkbox' onClick={() => item.status == false? item.status = true : item.status = false} />
                   <RemoveTask value={item.id} onClick={ e => deleteTask(taskList, e.button)}/>
                 </Flexbox>
               </Task>
@@ -58,13 +58,13 @@ useEffect(()=>{
             if(item.status == true) {
               return (
                 <Task key={item.id}>
-                <Label>{item.id}</Label> 
+                  <Label>{item.id}</Label> 
                   {item.text}
-                <Flexbox width='4rem' height='100%' justify='space-between' align='center'>
-                  <CheckTask type='checkbox' />
-                  <RemoveTask />
-                </Flexbox>
-              </Task>
+                  <Flexbox width='4rem' height='100%' justify='space-between' align='center'>
+                    <CheckTask value={item.id} type='checkbox' checked={item.status} onClick={() => item.status == true ? item.status = false : item.status = true} />
+                    <RemoveTask value={item.id} onClick={ e => deleteTask(taskList, e.button)}/>
+                  </Flexbox>
+                </Task>
               )
             }})
          }
