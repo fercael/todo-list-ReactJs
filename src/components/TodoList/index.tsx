@@ -6,6 +6,7 @@ import { ITask } from './interfaces/task';
 import { ITodoListProps } from './interfaces/todoList';
 
 import { generateTask } from './functions/generateTask';
+import { deleteTask } from './functions/deleteTask';
 
 
 import { AddTask, CheckTask, CompletedTasks, Container, Input, Label, RemoveTask, Task, Title, UncompletedTasks } from './styles';
@@ -22,6 +23,9 @@ const TodoList: React.FC<ITodoListProps> = ({
 useEffect(()=>{
   setTaskList([...taskList, newTask])
 }, [newTask])
+useEffect(()=>{
+  setTaskList([...taskList])
+},[taskList])
 
   return (
     <Container>
@@ -41,7 +45,7 @@ useEffect(()=>{
                   {item.text}
                 <Flexbox width='4rem' height='100%' justify='space-between' align='center'>
                   <CheckTask type='checkbox' />
-                  <RemoveTask />
+                  <RemoveTask value={item.id} onClick={ e => deleteTask(taskList, e.button)}/>
                 </Flexbox>
               </Task>
               )
